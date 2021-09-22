@@ -7,7 +7,6 @@ export const QUERY_ME = gql`
         username
         email
         savedStocks{
-            _id
             ticker
             name
         }
