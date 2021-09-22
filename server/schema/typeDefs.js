@@ -3,12 +3,9 @@ const { gql } = require("apollo-server-express");
 const typeDefs = gql`
   type User {
     _id: ID!
-
     username: String!
-
     email: String
     savedStocks: [Stock]
-
   }
 
   type Stock {
@@ -23,11 +20,8 @@ const typeDefs = gql`
 
   type Auth {
     token: ID!
-
     user: User
   }
-
- 
 
   type Query {
     me: User
@@ -37,7 +31,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     saveStock(stockData: StockInput!): User
-    removeStock(stockId: ID!): User
+    removeStock(ticker: ID!): User
   }
 `;
 

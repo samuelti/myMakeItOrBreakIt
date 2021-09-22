@@ -48,7 +48,14 @@ const resolvers = {
           return res;
       };
       throw new AuthenticationError('Not logged in!')
-      }
+      },
+      removeStock: async  (a, { ticker }, c)=>{
+        console.log("hello")
+        if(c.user){
+            return await User.findOneAndUpdate({_id: c.user._id}, {$pull: {savedStocks: {ticker}}}, {new: true})
+        };
+        throw new AuthenticationError('Incorrect Password!')
+    }
   } 
 };
     

@@ -39,19 +39,15 @@ mutation saveStock($stockData: StockInput!){
 }
 `;
 
-export const REMOVE_BOOK= gql`
-mutation removeBook($bookId: ID!){
-    removeBook(bookId: $bookId){
+export const REMOVE_STOCK= gql`
+mutation removeStock($ticker: ID!){
+    removeStock(ticker: $ticker){
         _id
         username
         email
-        saveBooks{
-            bookId
-            authors
-            image
-            description
-            title
-            link
+        saveStocks{
+            ticker
+            name
         }
     }
 }
