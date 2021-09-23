@@ -24,6 +24,13 @@
     "concurrently": "^5.1.0"
   },
   "dependencies": {
-    "graphql": "^15.5.2"
+    "d3-dsv": "^3.0.1",
+    "d3-format": "^3.0.1",
+    "d3-scale": "^4.0.1",
+    "d3-time-format": "^4.0.0",
+    "graphql": "^15.5.2",
+    "prop-types": "^15.7.2",
+    "react-stockcharts": "^0.7.8",
+    "shortid": "^2.2.16"
   }
 }

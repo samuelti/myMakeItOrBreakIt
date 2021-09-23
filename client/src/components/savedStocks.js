@@ -17,6 +17,8 @@ import { REMOVE_STOCK } from "../utils/mutations";
 
 import { removeTicker } from "../utils/localStorage";
 
+import ChartComponent from "./ChartComponent";
+
 const SavedStocks = () => {
   const { loading, data } = useQuery(QUERY_ME);
   const [removeStock] = useMutation(REMOVE_STOCK);
@@ -25,6 +27,12 @@ const SavedStocks = () => {
     close: "",
     volume: "",
     symbol: "",
+  });
+
+  const [chart, setChart] = useState({
+    open: "",
+    close: "",
+
   });
 
   const [show, setShow] = useState(false);
@@ -46,6 +54,10 @@ const SavedStocks = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        setChart({
+          open: data.open,
+          close: data.close,
+        })
         setStockInfo({
           open: data.open,
           close: data.close,
@@ -139,6 +151,10 @@ const SavedStocks = () => {
           <p>open: {stockInfo.open}</p>
           <p>close: {stockInfo.close}</p>
           <p>volume traded: {stockInfo.volume}</p>
+
+          <ChartComponent data={chart} />
+
+         
         </Modal.Body>
         <Modal.Footer>
           <Button variant="success" onClick={handleClose}>
