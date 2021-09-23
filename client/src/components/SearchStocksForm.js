@@ -84,8 +84,12 @@ const SearchStocksForm = () => {
     };
 
     return (
-        <>
+        <>  
+            <Jumbotron className="text-light bg-dark">
+            <div>
             <h2>Search Stock</h2>
+            </div>
+            </Jumbotron>
             <Form onSubmit={handleFormSubmit}>
                 <Form.Control
                     name="searchInput"

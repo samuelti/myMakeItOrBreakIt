@@ -82,7 +82,7 @@ const SavedStocks = () => {
     <>
       <Jumbotron fluid className="text-light bg-dark">
         <Container>
-          <h1>Viewing saved books!</h1>
+          <h1>Viewing saved Stocks!</h1>
         </Container>
       </Jumbotron>
       <Container>
@@ -103,7 +103,7 @@ const SavedStocks = () => {
                   {/* <p className='small'>Authors: {book.authors}</p> */}
                   <Card.Text>{book.name}</Card.Text>
                   <Button
-                    className="btn-block btn-danger"
+                    className="btn-block btn-primary"
                     onClick={
                       () => {
                         getData(book.ticker);
@@ -141,7 +141,7 @@ const SavedStocks = () => {
           <p>volume traded: {stockInfo.volume}</p>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="success" onClick={handleClose}>
             Close
           </Button>
         </Modal.Footer>
