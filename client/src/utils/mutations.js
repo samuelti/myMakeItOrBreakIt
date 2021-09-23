@@ -45,7 +45,7 @@ mutation removeStock($ticker: ID!){
         _id
         username
         email
-        saveStocks{
+        savedStocks{
             ticker
             name
         }
