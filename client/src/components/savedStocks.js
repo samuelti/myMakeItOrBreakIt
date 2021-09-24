@@ -19,6 +19,11 @@ import { removeTicker } from "../utils/localStorage";
 
 import ChartComponent from "./ChartComponent";
 
+import { getMSFTData, getIexData } from "../utils/utils2";
+
+import ChartComponent2 from "./ChartComponent2";
+
+
 const SavedStocks = () => {
   const { loading, data } = useQuery(QUERY_ME);
   const [removeStock] = useMutation(REMOVE_STOCK);
@@ -28,6 +33,7 @@ const SavedStocks = () => {
     volume: "",
     symbol: "",
   });
+  const [chartData,setChartData] = useState([]);
 
   const [chart, setChart] = useState({
     open: "",
@@ -66,6 +72,12 @@ const SavedStocks = () => {
         });
       });
   };
+
+  async function getChartData(ticker)  {
+    const data = await getMSFTData();
+    console.log("data",data);
+    setChartData(data);
+  }
 
   const handleDeleteStock = async (ticker) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -119,7 +131,9 @@ const SavedStocks = () => {
                     onClick={
                       () => {
                         getData(book.ticker);
+                        getChartData(book.ticker);
                         handleShow();
+
                       }
                       // handleDeleteBook(userData.savedStocks.ticker)
                     }
@@ -152,7 +166,7 @@ const SavedStocks = () => {
           <p>close: {stockInfo.close}</p>
           <p>volume traded: {stockInfo.volume}</p>
 
-          <ChartComponent data={chart} />
+          <ChartComponent2 data={chartData} />
 
          
         </Modal.Body>
