@@ -27,7 +27,7 @@ export function getMSFTData() {
 
 export function getIexData(ticker) {
 
-    const rawFetch = fetch(`https://sandbox.iexapis.com/stable/stock/${ticker}/chart/1m?chartLast=10&token=Tpk_abbacc6e57584a6da579c151542e24c3`)
+    const rawFetch = fetch(`https://sandbox.iexapis.com/stable/stock/${ticker}/chart/1m?chartLast=20&token=Tpk_abbacc6e57584a6da579c151542e24c3`)
 
            .then(response => response.json())
 

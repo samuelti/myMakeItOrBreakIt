@@ -20,7 +20,7 @@ class CandleStickChart extends React.Component {
 		const xAccessor = d => d.date;
 		const xExtents = [
 			xAccessor(last(data)),
-			xAccessor(data[data.length - 100])
+			xAccessor(data[0])
 		];
 		return (
 			<ChartCanvas height={400}

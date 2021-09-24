@@ -74,9 +74,14 @@ const SavedStocks = () => {
   };
 
   async function getChartData(ticker)  {
-    const data = await getMSFTData();
-    console.log("data",data);
-    setChartData(data);
+    // const data = await getMSFTData();
+    // console.log("data",data);
+    // setChartData(data);
+    const iexData = await getIexData(ticker);
+    const reverseIexData = iexData.reverse();
+    console.log(iexData);
+    console.log(reverseIexData);
+    setChartData(reverseIexData);
   }
 
   const handleDeleteStock = async (ticker) => {
