@@ -120,7 +120,7 @@ const SavedStocks = () => {
             ? `Viewing ${userData.savedStocks.length} saved ${
                 userData.savedStocks.length === 1 ? "book" : "books"
               }:`
-            : "You have no saved books!"}
+            : "You have no saved Stocks!"}
         </h2>
         <CardColumns>
           {userData.savedStocks.map((book) => {
