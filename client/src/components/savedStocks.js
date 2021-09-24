@@ -118,7 +118,7 @@ const SavedStocks = () => {
         <h2>
           {userData.savedStocks.length
             ? `Viewing ${userData.savedStocks.length} saved ${
-                userData.savedStocks.length === 1 ? "book" : "books"
+                userData.savedStocks.length === 1 ? "stock" : "stocks"
               }:`
             : "You have no saved Stocks!"}
         </h2>
