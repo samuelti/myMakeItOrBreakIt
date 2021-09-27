@@ -55,20 +55,20 @@ const SavedStocks = () => {
     let yyyy = today.getFullYear();
 
     fetch(
-      `https://api.polygon.io/v1/open-close/${tickerId}/${yyyy}-${mm}-${dd}?adjusted=true&apiKey=nKFxEPdEetH2tZBgIrqqmMuFAy3goELs`
+      `https://api.polygon.io/v2/aggs/ticker/${tickerId}/prev?adjusted=true&apiKey=nKFxEPdEetH2tZBgIrqqmMuFAy3goELs`
     )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        setChart({
-          open: data.open,
-          close: data.close,
-        })
+        // setChart({
+        //   open: data.res,
+        //   close: data.close,
+        // })
         setStockInfo({
-          open: data.open,
-          close: data.close,
-          volume: data.volume,
-          symbol: data.symbol,
+          open: data.results[0].o,
+          close: data.results[0].c,
+          volume: data.results[0].v,
+          symbol: data.ticker,
         });
       });
   };
